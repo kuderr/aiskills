@@ -6,7 +6,7 @@ A collection of skills for Claude and other agents that support the [Agent Skill
 
 ### yasno
 
-Writes and edits human-sounding prose — documentation first, but also articles, emails, and posts. Based on Russian infostyle (Maxim Ilyakhov's "Пиши, сокращай" and "Ясно, понятно") combined with rules against the formal tells of AI-generated text. Works for English and Russian.
+Writes and edits human-sounding prose — documentation first, but also articles, emails, and posts. Works for English and Russian.
 
 What it does in practice: leads with what the reader needs, kills bureaucratese and filler words ("utilize" → "use", «осуществляет проверку» → «проверяет»), keeps formatting minimal (no bold spam, no bullet mush, no "Conclusion" sections), and strips AI patterns like the rule of three, negative parallelism, and "It's important to note". It also guards against overcorrection: technical details, versions, flags, and warnings stay; the text doesn't turn telegraphic.
 
