@@ -19,6 +19,8 @@ The core principle: text is written in the reader's world. Not "what I want to s
 
 If the user gives you an existing text and asks to clean it up — skip steps 1–3 and work through the editing passes. Preserve meaning and facts: invent nothing, lose nothing important.
 
+If the deliverable is a documentation set rather than a single text — a docs/ folder, several cross-linked files, an architecture section, an RFC or ADR — also read `references/project-docs.md`. It covers what single-text rules don't: one source of truth across files, hub pages, diagram discipline, term and placeholder consistency, and the anatomy of a good RFC.
+
 ## Pass 1: stop words and bureaucratese
 
 Remove words that carry no meaning. If a word can be deleted and the sentence doesn't change — delete it.
@@ -77,6 +79,22 @@ These constructions instantly mark a text as machine-generated. In English:
 
 The same patterns exist in Russian («важно отметить», «играет ключевую роль», «это не просто X — это Y», «давайте разберёмся»). The extended list with fixes for both languages is in `references/ai-patterns.md`. Read it when cleaning a text that smells of AI, or as a final sweep on anything longer than a page.
 
+## Updating documents: a snapshot, not a diff
+
+A document describes the current state of the system for a reader who never saw any previous version. History lives in git and release notes — not in the document body. When updating an existing doc, agents (and tired humans) leave edit-history residue. Remove it:
+
+- **Ghost contrasts.** "Uses X, not Y" / "X instead of Y" — where Y is simply what this edit just deleted. The reader never saw Y; the contrast explains nothing. State X plainly. The test: does Y exist in the reader's world (a common misconception, a system they're migrating from) — or only in the editing session's history? Reader's world → keep the contrast, that's negative-space documentation. Session history → drop it.
+- **Temporal anchors with no anchor.** "Now uses X", "as of this change", "the new scheme" — "now" relative to what? A document has no timeline. Write "uses X". "New" survives only in release notes, where the release date is the anchor.
+- **Formerly-residue.** "(formerly Y)", «(ранее Y)» — keep only while real readers still arrive knowing the old name, and plan its removal.
+- **Update markers and meta-commentary.** "UPD:", "**Update:**", "This section was rewritten for clarity" — delete. The document is not its own changelog.
+- **Sedimentary appends.** New information goes where its topic lives, not as a fresh paragraph at the end of the file. If every edit only appends, the doc turns into geological strata: each layer true at deposit time, the whole thing unreadable.
+- **Defensive duplication.** Don't keep the old paragraph "just in case" next to the new one, and don't hedge with "X (also known as Y)" when Y is dead. One truth per topic — kill the loser.
+- **Addressing the requester.** "As requested, I've added...", "Below I've updated..." — the document's reader is not the person who asked for the edit. No traces of the conversation in the deliverable.
+
+Exceptions, by register: migration guides and release notes ARE the diff — "was X, now Y" is their content, not residue. A deprecation note in an API reference is fine while the deprecated thing still exists. In an RFC, the old design belongs in "Alternatives considered" — not scattered through the body as contrasts.
+
+After an update, reread the whole section, not just the changed lines. An edit is done when a new reader can't tell where the seam is.
+
 ## What NOT to do (overcorrection)
 
 Anti-slop easily becomes a new kind of slop. Don't:
@@ -98,7 +116,9 @@ After: "The service receives requests and spreads them evenly across pods."
 **Bullet mush → prose**
 
 Before:
+
 > **Key benefits:**
+>
 > - **Reliability:** the operator is fault-tolerant
 > - **Transparency:** state is always visible
 > - **Flexibility:** easy to configure

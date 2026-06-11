@@ -12,7 +12,7 @@ Reader: someone mid-incident or following steps, often under stress. Register: c
 
 ## Design doc, RFC, ADR
 
-Reader: colleagues deciding whether to approve. Register: reasoning. First person plural is fine ("we propose"). Honest trade-offs are mandatory: what we lose, which alternatives were considered and why they were rejected. Naming the weak spots of your own proposal builds trust, it doesn't undermine it.
+Reader: colleagues deciding whether to approve. Register: reasoning. First person plural is fine ("we propose"). Honest trade-offs are mandatory: what we lose, which alternatives were considered and why they were rejected. Naming the weak spots of your own proposal builds trust, it doesn't undermine it. The full anatomy of a good RFC (status header, out-of-scope with reasons and prices, additive vs breaking extensions) is in `project-docs.md`.
 
 ## Release notes, changelog
 

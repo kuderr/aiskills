@@ -10,7 +10,7 @@ Writes and edits human-sounding prose — documentation first, but also articles
 
 What it does in practice: leads with what the reader needs, kills bureaucratese and filler words ("utilize" → "use", «осуществляет проверку» → «проверяет»), keeps formatting minimal (no bold spam, no bullet mush, no "Conclusion" sections), and strips AI patterns like the rule of three, negative parallelism, and "It's important to note". It also guards against overcorrection: technical details, versions, flags, and warnings stay; the text doesn't turn telegraphic.
 
-Reference files load on demand: stop-word lists for English and Russian, an extended catalog of AI tells, and a tone cheat sheet for nine document types (README, runbook, design doc, release notes, and so on).
+Reference files load on demand: stop-word lists for English and Russian, an extended catalog of AI tells, a tone cheat sheet for nine document types (README, runbook, design doc, release notes, and so on), and a guide to multi-file documentation sets — hub pages, one source of truth, diagram and terminology discipline, RFC anatomy.
 
 ## Installation
 

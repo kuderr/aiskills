@@ -54,6 +54,16 @@ delve → look at / dig into; leverage → use; utilize → use; seamless → sm
 - **Identical paragraphs**: each one three sentences of roughly equal length. Fix: merge, split, change the rhythm.
 - **Echo structure**: every section built the same way (definition → three bullets → takeaway).
 
+## Edit-history residue (when updating documents)
+
+Markers that an edit left scars in the text — the doc started describing its own history instead of the current state. Grep-able list; the full rule and its exceptions are in SKILL.md, "Updating documents".
+
+English: "now uses", "instead of the old", "no longer", "previously", "(formerly ...)", "as of this change/update", "the new approach/scheme", "UPD:", "Update:", "has been updated/rewritten to", "as requested".
+
+Russian: «теперь используется», «вместо старого/прежнего», «больше не», «ранее», «(ранее ...)», «новая схема/подход», «в отличие от предыдущей ревизии/версии», «обновлено:», «как и просили», «было решено заменить».
+
+Each marker is a question, not an automatic deletion: does the contrast serve a reader who never saw the previous version? If yes (migration guide, deprecation note, common misconception) — it stays. If the "old" exists only in the edit history — state the current truth plainly.
+
 ## Fixing rhythm (both languages)
 
 1. Read the paragraph aloud. If the intonation is identical on every sentence, the rhythm is machine-like.
