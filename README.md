@@ -16,6 +16,10 @@ Reference files load on demand: stop-word lists for English and Russian, an exte
 
 Reviews existing docs against the yasno rules and fixes them on request. Point it at a file or folder, or let it pick up the docs changed on the current branch. Findings come one line each — location, rule, concrete fix: bullet mush, backtick noise, bold spam, pages over the ~200-line budget, prose that should be a diagram, stale open questions in RFCs. With `--fix` it applies the edits. Install it next to yasno — it reads the rules from there.
 
+### yasno-factcheck
+
+Checks whether a document tells the truth, where yasno-review checks how it reads. Extracts every checkable claim — numbers, defaults, field names, described behavior — and verifies each against the code or spec, factored: the claim becomes a question that doesn't contain the doc's answer, the question is answered from the source alone, the answers are compared. Verdicts come as one line per problem: confirmed, contradicted (with the source's file:line), stale, or unsupported. On fix, contradicted facts get corrected to the source's value; unsupported ones become questions to the author, not guesses.
+
 ## Installation
 
 Claude Code — copy the skill folder into your skills directory:

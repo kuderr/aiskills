@@ -27,6 +27,8 @@ A document is a promise that its facts are true. Prose can be redrafted; a wrong
 
 Verify first, ask second. Most gaps close without bothering anyone: read the code, run `--help`, open the spec, check the ticket. When sources disagree, trust proximity to the machine: code beats config, config beats the wiki, everything beats memory. If the doc you're editing contradicts the code, ask which one is wrong instead of silently picking.
 
+Checking your own draft has a trap: rereading a fluent sentence feels like verifying it. Verify factored — turn the claim into a question that doesn't contain your answer, answer it from the source, then compare with what you wrote.
+
 Ask when verification can't reach: numbers nobody wrote down (limits, deadlines, rps), who owns or decides, why a past decision went the way it did, status of work outside the repo — and the direction of the document itself: audience, scope, what's deliberately out. Direction questions come before the draft; three questions up front are cheaper than a rewritten document.
 
 While drafting, don't stop at every gap — mark it and keep writing: `<!-- TODO: verify TTL with the FWaaS team -->`, «уточнить у ИБ». Then ask the collected questions in one batch, each with your best guess attached ("I assume 24h, same as the neighbor cache — right?") so answering costs seconds. If the user says "just draft it", the markers stay in the text: an honest gap the reader can see beats an invented fact they can't. Markers are drafting scaffolding — they must be resolved before the document ships for review.

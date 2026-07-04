@@ -1,6 +1,6 @@
 ---
 name: yasno-review
-description: Review existing documentation against the yasno rules and fix it. Use when the user asks to review or clean up a doc, README, RFC, ADR for style — "отревьюй доку", "проверь по yasno", "поправь доку", "review this doc", or invokes /yasno-review. Reviews prose quality only, not technical correctness. For writing new docs from scratch, use the yasno skill directly.
+description: Review existing documentation against the yasno rules and fix it. Use when the user asks to review or clean up a doc, README, RFC, ADR for style — "отревьюй доку", "проверь по yasno", "поправь доку", "review this doc", or invokes /yasno-review. Reviews prose quality only; checking facts against sources is yasno-factcheck's job. For writing new docs from scratch, use the yasno skill directly.
 ---
 
 # Yasno review: find style problems in docs, then fix them
@@ -15,7 +15,7 @@ What to review, in order:
 2. Otherwise docs changed on the current branch: `git diff $(git merge-base master HEAD) --name-only` plus working-tree changes, filtered to markdown.
 3. Otherwise ask.
 
-Review prose only. Never change content inside code blocks, commands, API routes, config samples, or quotes — formatting around them is fair game, their content is not.
+Review prose only. Never change content inside code blocks, commands, API routes, config samples, or quotes — formatting around them is fair game, their content is not. Whether the doc's facts are true is out of scope — when a doc is dense with numbers, defaults, and described behavior, suggest running yasno-factcheck after the style pass.
 
 ## Rulebook
 
