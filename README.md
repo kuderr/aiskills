@@ -10,7 +10,11 @@ Writes and edits human-sounding prose — documentation first, but also articles
 
 What it does in practice: leads with what the reader needs, kills bureaucratese and filler words ("utilize" → "use", «осуществляет проверку» → «проверяет»), keeps formatting minimal (no bold spam, no bullet mush, no "Conclusion" sections), and strips AI patterns like the rule of three, negative parallelism, and "It's important to note". It also guards against overcorrection: technical details, versions, flags, and warnings stay; the text doesn't turn telegraphic.
 
-Reference files load on demand: stop-word lists for English and Russian, an extended catalog of AI tells, a tone cheat sheet for nine document types (README, runbook, design doc, release notes, and so on), and a guide to multi-file documentation sets — hub pages, one source of truth, diagram and terminology discipline, RFC anatomy.
+Reference files load on demand: stop-word lists for English and Russian, an extended catalog of AI tells, a tone cheat sheet for nine document types (README, runbook, design doc, release notes, and so on), and a guide to multi-file documentation sets — hub pages, one source of truth, page budget, diagram and terminology discipline, RFC anatomy.
+
+### yasno-review
+
+Reviews existing docs against the yasno rules and fixes them on request. Point it at a file or folder, or let it pick up the docs changed on the current branch. Findings come one line each — location, rule, concrete fix: bullet mush, backtick noise, bold spam, pages over the ~200-line budget, prose that should be a diagram, stale open questions in RFCs. With `--fix` it applies the edits. Install it next to yasno — it reads the rules from there.
 
 ## Installation
 

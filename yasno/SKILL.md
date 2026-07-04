@@ -52,13 +52,15 @@ Important: removing junk doesn't mean removing meaning. "Very fast" is bad not b
 - Headings are informative: not "Introduction", "Features", "Conclusion" — but "Installation", "How SIDs are allocated", "What to do when policies conflict".
 - No "Conclusion" / "Summary" / "Wrapping up" sections. The text ends on the last useful thought.
 - Exactly as much detail as the reader's action requires. Versions, flags, limitations, footgun warnings are necessary detail — don't touch them. Musings about "why this matters in general" are fluff — cut them.
+- A document that scrolls past ~200 lines needs a reason or a split. How to split and where diagrams replace text — `references/project-docs.md`.
 
 ## Pass 4: formatting
 
 The default is plain paragraphs of prose. Formatting is added only when its absence makes things worse.
 
-- **Lists** — only for genuinely enumerable things: installation steps, a set of flags, requirements. Don't shred a connected argument into bullets. If list items look like "**Word:** explanation", it should probably be a prose paragraph.
+- **Lists** — only for genuinely enumerable things the reader scans or executes: a set of flags, prerequisites, numbered installation steps. Don't shred a connected argument into bullets. Two tells that a list is prose in a costume: items are full sentences with reasons and cross-references ("X — because Y, see Z"), or items look like "**Word:** explanation". Rejoin them: bullets have no logic between items, prose does — and how a system behaves almost always has logic between steps.
 - **Bold** — almost never. Acceptable: a term at first definition, a UI element ("click **Apply**"). Bold for "emphasis" sprinkled inside sentences is slop.
+- **Inline code** (backticks) — for what the reader copies, types, or greps: commands, paths, API routes, a field or annotation name at first definition. A term the document uses as a word after introducing it — a verdict, a status, a component name — is written plain: "deny revokes the whole access", not "`deny` revokes the whole access". Three backticked spans in one sentence turn it into noise.
 - **Headings** — no more than one per 3–5 paragraphs. A heading above every paragraph is slop.
 - **Tables** — only for genuinely tabular data (parameter: name / type / default). Not for a two-row "comparison of approaches".
 - No emoji in headings or documentation body. Never touch or "decorate" anything inside code blocks.
@@ -139,6 +141,6 @@ Before delivering the text, verify:
 2. Read it aloud (mentally): if you stumble — rewrite.
 3. Can a word be removed without losing meaning? Remove it. Can a fact be removed? No — put it back.
 4. Does every new concept come with an example?
-5. Bold usages countable on one hand, at most one list per screen, informative headings, no "Conclusion"?
+5. Bold usages countable on one hand, backticks only on real code, at most one list per screen, informative headings, no "Conclusion"?
 6. No stop words or AI tells? When in doubt — check `references/`.
 7. Three same-length sentences in a row? Split one or merge two.

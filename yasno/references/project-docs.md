@@ -12,15 +12,21 @@ Diagrams obey the same rule. One canonical diagram per view of the system. If a 
 
 The index of a section is a router, not an essay: two or three sentences on what this is, then a table mapping section → what question it answers ("Control Plane — components, why kubeapi"; "Packet path — encap / fabric / decap, anycast"). A reader should find their door in ten seconds. Reading order across files is set by numbered filenames (01-, 02-) — keep the numbering gapless and the sidebar labels short.
 
+## Page budget: ~200 lines
+
+A page that scrolls past ~200 lines stops being read and starts being skimmed — and reviewers rubber-stamp what they skim. When a document outgrows the budget, split it by question, not by size: the decision stays on the main page; "how it works today" and "what prior documents missed" become their own pages, linked from the exact sentence that needs them. Real case: a 400-line ADR became four pages — the decision, current state, review of prior docs, and the near-term plan as a separate document; every page under budget, each answering one question. A split by size (part 1 / part 2) just hides the scroll bar.
+
 ## Link text
 
 A link names what's behind it: "RFC-001, Withdrawal scenarios" — good. "wiki: pageId=8098808754" — bad: the reader can't decide whether to click. When pointing to detail that's out of scope here, say so and point precisely: "The slice-reconcile algorithm is out of scope for this doc — see RFC-001, Key decisions."
 
 ## Diagrams
 
-A diagram earns its place when it shows relationships prose can't: topology, flows between components, sequences. A sequence diagram for protocols and lifecycles, a flowchart for topology; don't draw what a three-row table says better.
+A diagram earns its place when it shows relationships prose can't: topology, flows between components, sequences. A sequence diagram for protocols and lifecycles, a flowchart for topology, a state diagram for verdicts and statuses; don't draw what a three-row table says better.
 
-Every diagram is followed by prose pointing at what to notice — a "What matters in this picture" paragraph. A diagram without commentary is decoration: the reader sees boxes and arrows but not the point.
+The reverse smell: three paragraphs narrating states, transitions, or who-calls-whom ARE a diagram request. A flow with three or more participants, a lifecycle with more than three states — draw it and delete the narration.
+
+Every diagram is followed by prose pointing at what to notice — a "What matters in this picture" paragraph. A diagram without commentary is decoration: the reader sees boxes and arrows but not the point. But pointing is one paragraph — the counterintuitive edge, the transition people get wrong. If the text after a state machine re-tells every state and arrow in bullets, the same content lives twice and one copy will go stale. The diagram replaces the prose, it doesn't duplicate it.
 
 ## Bridge tables: explaining through the known
 
@@ -53,3 +59,7 @@ Parenthesis depth ≤ 1. A sentence with nested parentheses, plus-signs joining 
 A header block: status (Draft / In review / Accepted / Superseded by NNN), date, owner. Without a status line the reader can't tell a binding decision from a sketch someone abandoned.
 
 Problem first, then the decision. Out of scope with reasons — not a bare list of absent things, but why each is absent and what the absence costs: "the price is no single point of truth for the anycast group; configs must be kept consistent on the NMS side." Alternatives considered, each with why it was rejected. When mentioning a future extension, say whether it lands additively or breaks the contract. Naming the weak spots of your own design is what makes the strong parts believable.
+
+An open question earns its slot by being genuinely open: what exactly is unresolved, who decides, by when, and what it blocks. "Approve the service name" is a task for a chat, not an open question; a question the body already answers is residue — move the answer into the body and delete the question. Nine open questions where four are real hide the four.
+
+Template residue — commented-out status variants, `<!-- what do we want to get -->` prompts left from the RFC template, "(?)" placeholders — is cleaned out before review. A reviewer who sees scaffolding assumes the thinking is scaffolding too.
