@@ -13,13 +13,23 @@ The core principle: text is written in the reader's world. Not "what I want to s
 
 1. **Identify the reader, the useful action, and the register.** One sentence: who reads this and what they can do after reading. Example: "A DevOps engineer installing the operator for the first time — after the README they deploy it in their cluster and create the first policy." The document type sets the register: a README is not written like a runbook, and a runbook is not written like a blog post. A cheat sheet covering nine document types lives in `references/registers.md`; read it when the document type is unusual or the tone is in doubt. If the reader isn't clear from the task — ask the user, or make an explicit assumption and state it.
 2. **Build the skeleton.** The main thing goes first. Then in descending order of importance to the reader: what they can't act without, then details, then reference material at the end.
-3. **Write the draft.** Don't think about beauty, think about meaning.
+3. **Write the draft.** Don't think about beauty, think about meaning. Facts you can't verify get marked, not invented — rules in "Facts: verify or ask" below.
 4. **Run four editing passes**: stop words → syntax → paragraphs → formatting. Each pass is described below.
 5. **Check against the final checklist** at the end of this file.
 
 If the user gives you an existing text and asks to clean it up — skip steps 1–3 and work through the editing passes. Preserve meaning and facts: invent nothing, lose nothing important.
 
 If the deliverable is a documentation set rather than a single text — a docs/ folder, several cross-linked files, an architecture section, an RFC or ADR — also read `references/project-docs.md`. It covers what single-text rules don't: one source of truth across files, hub pages, diagram discipline, term and placeholder consistency, and the anatomy of a good RFC.
+
+## Facts: verify or ask, never invent
+
+A document is a promise that its facts are true. Prose can be redrafted; a wrong number, name, or default gets copied into configs and decisions. Every fact in the text needs a source you can point to: code, a config, an API spec, a ticket, the user's own words. Below ~90% confidence — verify or ask. Never fill a gap with a plausible-looking value.
+
+Verify first, ask second. Most gaps close without bothering anyone: read the code, run `--help`, open the spec, check the ticket. When sources disagree, trust proximity to the machine: code beats config, config beats the wiki, everything beats memory. If the doc you're editing contradicts the code, ask which one is wrong instead of silently picking.
+
+Ask when verification can't reach: numbers nobody wrote down (limits, deadlines, rps), who owns or decides, why a past decision went the way it did, status of work outside the repo — and the direction of the document itself: audience, scope, what's deliberately out. Direction questions come before the draft; three questions up front are cheaper than a rewritten document.
+
+While drafting, don't stop at every gap — mark it and keep writing: `<!-- TODO: verify TTL with the FWaaS team -->`, «уточнить у ИБ». Then ask the collected questions in one batch, each with your best guess attached ("I assume 24h, same as the neighbor cache — right?") so answering costs seconds. If the user says "just draft it", the markers stay in the text: an honest gap the reader can see beats an invented fact they can't. Markers are drafting scaffolding — they must be resolved before the document ships for review.
 
 ## Pass 1: stop words and bureaucratese
 
@@ -144,3 +154,4 @@ Before delivering the text, verify:
 5. Bold usages countable on one hand, backticks only on real code, at most one list per screen, informative headings, no "Conclusion"?
 6. No stop words or AI tells? When in doubt — check `references/`.
 7. Three same-length sentences in a row? Split one or merge two.
+8. Every fact traceable to a source — no invented numbers, names, or defaults? Unverified gaps marked and asked about, not papered over?
