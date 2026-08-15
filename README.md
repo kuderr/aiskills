@@ -20,6 +20,14 @@ Reviews existing docs against the yasno rules and fixes them on request. Point i
 
 Checks whether a document tells the truth, where yasno-review checks how it reads. Extracts every checkable claim — numbers, defaults, field names, described behavior — and verifies each against the code or spec, factored: the claim becomes a question that doesn't contain the doc's answer, the question is answered from the source alone, the answers are compared. Verdicts come as one line per problem: confirmed, contradicted (with the source's file:line), stale, or unsupported. On fix, contradicted facts get corrected to the source's value; unsupported ones become questions to the author, not guesses.
 
+### naglyadno
+
+Keeps technical documents short and visual. A hard cap of 100 prose lines per document — diagrams, tables, code blocks, and images don't count, and there's an awk one-liner to check it. Over the cap, the fix is never cutting facts: convert prose to a visual, split the document, or move bulk to an appendix.
+
+A lookup table maps content to form — sequence diagram for call order, state diagram for lifecycles, table for parameters and for option trade-offs, code block for request shapes — each with the prose smell that signals the conversion. Prose keeps what only prose can carry: why the design is this way, what it costs, what the system deliberately doesn't do, and one pointing paragraph per diagram.
+
+Big topics split by question, not by size: one file per question a reader arrives with, each under its own cap, routed from a hub page. Reference bulk — full configs, API dumps, raw benchmark output — goes to appendix files next to the doc, exempt from the cap, linked from the sentence that needs them. Works alongside yasno, which governs how the prose reads; this one governs how much of it there is.
+
 ### kratko
 
 Makes the agent answer short: the conclusion first, 1–5 lines, no headings, no recap of work the transcript already shows. Thinking stays as deep as the task needs — only the output shrinks. Facts survive the cut: paths, commands, error text, warnings, honest failures, and stated assumptions never get dropped for brevity.
