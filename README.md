@@ -20,6 +20,18 @@ Reviews existing docs against the yasno rules and fixes them on request. Point i
 
 Checks whether a document tells the truth, where yasno-review checks how it reads. Extracts every checkable claim — numbers, defaults, field names, described behavior — and verifies each against the code or spec, factored: the claim becomes a question that doesn't contain the doc's answer, the question is answered from the source alone, the answers are compared. Verdicts come as one line per problem: confirmed, contradicted (with the source's file:line), stale, or unsupported. On fix, contradicted facts get corrected to the source's value; unsupported ones become questions to the author, not guesses.
 
+### kratko
+
+Makes the agent answer short: the conclusion first, 1–5 lines, no headings, no recap of work the transcript already shows. Thinking stays as deep as the task needs — only the output shrinks. Facts survive the cut: paths, commands, error text, warnings, honest failures, and stated assumptions never get dropped for brevity.
+
+When the work hits a fork, it offers pickable options instead of a paragraph per branch — `AskUserQuestion` in Claude Code, the equivalent elsewhere — recommendation first, one line each. It goes long only when brevity would break the task: on request, for deliverables (docs, commit messages, PR bodies), for plans awaiting approval, and for root-cause chains.
+
+Unlike the other skills here, kratko is meant to be always on. Skills load when their description matches the task, so to pin it as the default answering style add one line to `~/.claude/CLAUDE.md`:
+
+```
+Always use the kratko skill when answering, unless I ask for detail.
+```
+
 ## Installation
 
 Claude Code — copy the skill folder into your skills directory:
