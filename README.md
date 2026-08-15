@@ -14,11 +14,19 @@ Reference files load on demand: stop-word lists for English and Russian, an exte
 
 ### yasno-review
 
-Reviews existing docs against the yasno rules and fixes them on request. Point it at a file or folder, or let it pick up the docs changed on the current branch. Findings come one line each — location, rule, concrete fix: bullet mush, backtick noise, bold spam, pages over the ~200-line budget, prose that should be a diagram, stale open questions in RFCs. With `--fix` it applies the edits. Install it next to yasno — it reads the rules from there.
+Reviews existing docs against the yasno rules and fixes them on request. Point it at a file or folder, or let it pick up the docs changed on the current branch. Findings come one line each — location, rule, concrete fix: bullet mush, backtick noise, bold spam, prose that should be a diagram or a table, files answering more than one question, stale open questions in RFCs. Length is measured with naglyadno's prose counter and reported against its 100-line cap, falling back to yasno's ~200 when naglyadno isn't installed. With `--fix` it applies the edits; splits and appendix moves are proposed first and applied on a yes. Install it next to yasno — it reads the rules from there.
 
 ### yasno-factcheck
 
-Checks whether a document tells the truth, where yasno-review checks how it reads. Extracts every checkable claim — numbers, defaults, field names, described behavior — and verifies each against the code or spec, factored: the claim becomes a question that doesn't contain the doc's answer, the question is answered from the source alone, the answers are compared. Verdicts come as one line per problem: confirmed, contradicted (with the source's file:line), stale, or unsupported. On fix, contradicted facts get corrected to the source's value; unsupported ones become questions to the author, not guesses.
+Checks whether a document tells the truth, where yasno-review checks how it reads. Extracts every checkable claim — numbers, defaults, field names, described behavior, plus the ones living inside diagrams, tables, and example payloads — and verifies each against the code or spec, factored: the claim becomes a question that doesn't contain the doc's answer, the question is answered from the source alone, the answers are compared. Verdicts come as one line per problem: confirmed, contradicted (with the source's file:line), stale, or unsupported. On fix, contradicted facts get corrected to the source's value; unsupported ones become questions to the author, not guesses.
+
+### naglyadno
+
+Keeps technical documents short and visual. A hard cap of 100 prose lines per document — diagrams, tables, code blocks, and images don't count, and there's an awk one-liner to check it. Over the cap, the fix is never cutting facts: convert prose to a visual, split the document, or move bulk to an appendix.
+
+A lookup table maps content to form — sequence diagram for call order, state diagram for lifecycles, table for parameters and for option trade-offs, code block for request shapes — each with the prose smell that signals the conversion. Prose keeps what only prose can carry: why the design is this way, what it costs, what the system deliberately doesn't do, and one pointing paragraph per diagram.
+
+Big topics split by question, not by size: one file per question a reader arrives with, each under its own cap, routed from a hub page. Reference bulk — full configs, API dumps, raw benchmark output — goes to appendix files next to the doc, exempt from the cap, linked from the sentence that needs them. Works alongside yasno, which governs how the prose reads; this one governs how much of it there is.
 
 ### kratko
 

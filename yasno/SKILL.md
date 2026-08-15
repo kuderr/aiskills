@@ -64,7 +64,7 @@ Important: removing junk doesn't mean removing meaning. "Very fast" is bad not b
 - Headings are informative: not "Introduction", "Features", "Conclusion" — but "Installation", "How SIDs are allocated", "What to do when policies conflict".
 - No "Conclusion" / "Summary" / "Wrapping up" sections. The text ends on the last useful thought.
 - Exactly as much detail as the reader's action requires. Versions, flags, limitations, footgun warnings are necessary detail — don't touch them. Musings about "why this matters in general" are fluff — cut them.
-- A document that scrolls past ~200 lines needs a reason or a split. How to split and where diagrams replace text — `references/project-docs.md`.
+- A document that scrolls past ~200 lines needs a reason or a split. How to split and where diagrams replace text — `references/project-docs.md`. If the naglyadno skill is installed, its hard 100-line prose cap replaces this budget.
 
 ## Pass 4: formatting
 
