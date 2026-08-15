@@ -16,6 +16,8 @@ The index of a section is a router, not an essay: two or three sentences on what
 
 A page that scrolls past ~200 lines stops being read and starts being skimmed — and reviewers rubber-stamp what they skim. When a document outgrows the budget, split it by question, not by size: the decision stays on the main page; "how it works today" and "what prior documents missed" become their own pages, linked from the exact sentence that needs them. Real case: a 400-line ADR became four pages — the decision, current state, review of prior docs, and the near-term plan as a separate document; every page under budget, each answering one question. A split by size (part 1 / part 2) just hides the scroll bar.
 
+The naglyadno skill, if installed, tightens this to a hard 100 prose lines with diagrams, tables, and code blocks excluded from the count — use that budget instead, and its appendix convention for reference bulk.
+
 ## Link text
 
 A link names what's behind it: "RFC-001, Withdrawal scenarios" — good. "wiki: pageId=8098808754" — bad: the reader can't decide whether to click. When pointing to detail that's out of scope here, say so and point precisely: "The slice-reconcile algorithm is out of scope for this doc — see RFC-001, Key decisions."

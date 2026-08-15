@@ -9,7 +9,7 @@ A reader scans a document before deciding to read it. What they can grab in that
 
 Two rules do the work: **a hard cap of 100 prose lines per document**, and **anything expressible as a picture, a table, or an example is not written as prose**. The cap is what forces the second rule to actually happen.
 
-This tightens yasno's soft ~200-line page budget to a hard 100 and supersedes it. Prose style stays yasno's job; diagram commentary, one-source-of-truth, hub pages, and RFC anatomy live in `yasno/references/project-docs.md` — read it for a docs set.
+This tightens yasno's soft ~200-line page budget to a hard 100 and supersedes it. Prose style stays yasno's job; diagram commentary, one-source-of-truth, hub pages, and RFC anatomy live in `yasno/references/project-docs.md` — read it for a docs set. On an existing document, yasno-review checks the cap and names what should become a visual; yasno-factcheck verifies the claims, including the ones that now live inside diagrams and tables.
 
 ## The 100-line cap
 

@@ -21,6 +21,8 @@ Read the document and pull out every atomic, checkable claim:
 - states and transitions: verdicts, statuses, what moves between them
 - environment: "runs in namespace X", "deployed through Y", "owned by team Z"
 
+Claims live in the visuals as much as in the prose, and in a doc written under naglyadno most of them do. Extract from every form: arrows and participants in a sequence diagram (who actually calls whom, in what order), states and transitions in a state diagram (including the ones the code has and the picture doesn't), every cell of a parameter or defaults table, field names and values in an example payload or config, flags in a copyable command. A diagram is the easiest place for a stale fact to hide — nobody rereads a picture the way they reread a sentence.
+
 Opinions and decisions are the author's — not checkable. But a decision often carries a checkable half: "we chose X because Y is slower" contains "Y is slower", and that one gets checked.
 
 ## Step 2: verify factored
@@ -43,6 +45,8 @@ A contradiction is not automatically the doc's fault: sometimes the code is the 
 ## Output
 
 One line per problem claim: `file:line — claim — verdict — source`. Contradicted first, then stale, then unsupported. Confirmed claims are one summary line with a count, not a list.
+
+A claim found in a visual is reported at the visual's line with what it is: `arch.md:41 — sequence diagram, agent → apiserver — contradicted — the agent writes to the queue, agent/sync.go:120`. Fixes go into the diagram, table, or example itself; a corrected sentence next to a wrong picture leaves the contradiction in place.
 
 If the user asked to fix: contradicted and stale facts get corrected to the source's value; unsupported facts become batched questions with your best guess attached — never silently deleted, never silently kept.
 
